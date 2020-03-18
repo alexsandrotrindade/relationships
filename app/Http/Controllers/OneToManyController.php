@@ -99,9 +99,20 @@ class OneToManyController extends Controller
             $insertState = State::create($dataForm);
             dump($insertState->name);
         }catch(\Exception $e){
-           return redirect('/')->withErrors('The name is required2');
+           return redirect('/')->withErrors('Erro ao inserir.');
         }    
 
+    }
+
+    public function hasManyThrough(){
+        $country = Country::find(1);
+        echo "<b>{$country->name}</b>: <br><br>";
+
+        $cities = $country->cities;
+
+        echo "{$cities->implode('name',', ')}<br>";
+
+        echo "<br>Total de cidades: {$cities->count()}";
     }
 
 }

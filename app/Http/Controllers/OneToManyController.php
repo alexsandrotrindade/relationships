@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OneToManyController extends Controller
 {
@@ -113,6 +114,11 @@ class OneToManyController extends Controller
         echo "{$cities->implode('name',', ')}<br>";
 
         echo "<br>Total de cidades: {$cities->count()}";
+    }
+
+    public function test(){
+        DB::statement('DROP TABLE company_city');
+        echo 'ok';
     }
 
 }

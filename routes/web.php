@@ -34,6 +34,11 @@ Route::get('test','OneToManyController@test');
  */
 Route::get('has-many-through', 'OneToManyController@hasManyThrough');
 
+/**
+ * MANY TO MANY
+ */
+
+ Route::get('many-to-many','ManyToManyController@manyToMany');
 
 Route::get('/', function () {
     return view('welcome');
